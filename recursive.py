@@ -89,24 +89,25 @@ a = [1, 2, 4, -36, 5, 3]
 print('Array A: ', a)
 b = ['hello', 'world']
 print('Array B: ', b)
-print()
+print('-----------------------')
 print('Sum of Array A: ',sum_(a))
 print('Product of Array A: ', product(a))
-print()
+print('-----------------------')
 print('Array A without odd numbers', odd_out(a))
 
 del arr2
 arr2=[]
 
 print('Array A without even numbers', even_out(a))
-print()
+print('-----------------------')
 print('Array B, replacing char o with * , ',replace_char(b))
-print()
+print('-----------------------')
 print('In Array A the number 2 is at index ',searc_ndex(a, 2))
-print()
+print('-----------------------')
 print('The sum of the digits of 78 is ', sum_digits(78))
-print()
+print('-----------------------')
 print('Printing every value in Array A, each on a new line')
 print_array(a)
-print()
+print('-----------------------')
 print('Minimum value in Array A: ',min_value(a))
+print('-----------------------')
