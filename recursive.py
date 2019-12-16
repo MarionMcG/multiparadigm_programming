@@ -1,7 +1,7 @@
 
 #Sum of an array (Recursive)
 def sum_(arr):
-    if len(arr)==0:
+    if len(arr)==0: 
         return 0
     else:
         return arr[0] + sum_(arr[1:]) 
@@ -49,49 +49,72 @@ def replace_char(arr):
     return new_arr
 
 
-def searc_ndex(arr):
-    #if len(arr)==0:
-        #return 
-    #else:
-        index = 0
-        for index, j in enumerate(arr):
-            if j == 2:
-                print(index)
-            else: 
-                index = index +1
-                searc_ndex(arr)
+def searc_ndex(arr, inte, loc = 0):
+
+    while  len(arr) > 0:
+        if inte not in arr:
+            return -1
+        elif arr[loc] == inte:
+            return loc
+        else:
+            return searc_ndex(arr, inte, loc+1)
 
 
-def search_ndex(arr):
-    i = -1
-    if len(arr ==0):
-        return i
+
+def sum_digits(inte, sum_=0):
+    if inte == 0:
+        return sum_
     else:
-        index = 0
-        for index, j in enumerate(arr):
-            if j == 2:
-                i = j
-            else: 
-                index = index +1
-                searc_ndex(arr)
+        digit = inte % 10
+        sum_ += digit
+        inte //= 10
+        return sum_digits(inte, sum_)
+     
+def print_array(arr):
+    if len(arr)==0:
+        return 0
+    else:
+        print(arr[0])
+        print_array(arr[1:])
 
-           
+
+
+
+
+min_=0
+def min_value(arr):
+    if len(arr)==0:
+        return 0
+    if len(arr) == 1:
+        return arr[0]
+    else:
+        min_ = arr[0]
+        next_ = arr[1]
+        if next_ < min_:
+            min_ = next_
+            return (min_value(arr[1:]), min_)
+        else:
+            return (min_value(arr[1:]), min_)
 
             
-
-
 a = [1, 2, 4, 5, 3]
-print('Array: ', a)
-print('Sum of the Array: ',sum_(a))
-print('Product of the Array: ', product(a))
+print('Array A: ', a)
+b = ['hello', 'world']
+print('Array B: ', b)
+print('Sum of Array A: ',sum_(a))
+print('Product of Array A: ', product(a))
+print('Array A without odd numbers')
 odd_out(a)
 
 del arr2
 arr2=[]
 
+print('Array A without even numbers')
 even_out(a)
 
-b = ['hello', 'world']
-#print(b)
-print(replace_char(b))
-searc_ndex(a)
+print('Array B, replacing char o with * , ',replace_char(b))
+print('In Array A the number 2 is at index ',searc_ndex(a, 2))
+
+print('The sum of the digits of 78 is ',sum_digits(78))
+print_array(a)
+print(min_value(a))
